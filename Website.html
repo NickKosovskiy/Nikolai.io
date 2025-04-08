@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ru"> 
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>MusicFlow-Главная</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding-top: 70px; /* Added space for the fixed header */
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 99%;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .logo:hover { 
+            color: #ff4500;
+            transition: color 0.3s ease;
+        }
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        nav a:hover {
+            color: #ff4500;
+            transition: color 0.3s ease;
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 20px; /* Reduced top padding */
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+        }
+        .hero span {
+            color: #ff4500;
+        }
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+            color: white;
+        }
+        .btn { 
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 25px;
+            background: #ff4500;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #e94e00; /* A darker shade of the orange for hover */
+            transition: background-color 0.3s ease;
+        }
+        .info {
+            padding: 50px;
+            background: rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        .info h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .charts-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        canvas {
+            display: block;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.3); /* Added background to canvas */
+            border: 2px solid #ff4500; /* Border color matching the website */
+            max-width: 80%; /* Reduced size of the charts */
+            height: auto;
+            animation: chartAnimation 1.5s ease-in-out; /* Animation effect */
+        }
+        @keyframes chartAnimation {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        footer {
+            background: black;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .footer-column {
+            min-width: 200px;
+        }
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        .footer-column ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-column ul li a:hover {
+            color: #ff4500;
+        }
+    </style>
+</head>
+<body>
+    <header> 
+        <a href="website.html" class="logo">MusicFlow</a> 
+        <nav>
+            <a href="news.html">Новости</a> 
+            <a href="novic.html">Начинающим</a> 
+            <a href="events.html">События</a> 
+            <a href="community.html">Сообщество</a> 
+            <a href="myz.html">Музыкантам</a>
+        </nav>
+    </header>
+
+    <section class="hero"> 
+        <h1>Приветствую вас в <span>MusicFlow</span></h1>
+        <p>Учитесь создавать произведения или будьте тем кто будет курировать новичков в своём начинании.</p>
+        <a href="Sign up.html" class="btn">Зарегистрироваться</a>
+    </section>
+
+    <section class="info">
+        <h2>О MusicFlow</h2>
+        <p>MusicFlow - это платформа для начинающих музыкантов и не только, где каждый может научиться чему-то новому.</p>
+        <p>Так же узнавайте свежие новости музыки и шоу-бизнеса.</p>
+        <button class="btn" id="changeTextBtn">Нажми</button>
+        <p id="changeableText">Нажмите кнопку выше, чтобы узнать больше о сайте.</p>
+
+        <!-- Диаграммы -->
+        <div class="charts-container">
+            <!-- Bar Chart Description -->
+            <div style="text-align:center; color: white;">
+                <h3>Популярность жанров музыки</h3>
+                <p>График показывает количество прослушиваний популярных жанров музыки.</p>
+            </div>
+            <canvas id="barChart" width="350" height="200"></canvas>
+
+            <!-- Bubble Chart Description -->
+            <div style="text-align:center; color: white;">
+                <h3>Активность пользователей</h3>
+                <p>График отображает активность пользователей на платформе, измеряемую по времени и количеству взаимодействий.</p>
+            </div>
+            <canvas id="bubbleChart" width="350" height="200"></canvas>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Узнайте о MusicFlow</h3>
+                <ul>
+                    <li><a href="404.html">О MusicFlow</a></li>
+                    <li><a href="404.html">Лидерство</a></li> 
+                    <li><a href="404.html">Карьера</a></li> 
+                    <li><a href="404.html">Правила и условия</a></li> 
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Сообщество MusicFlow</h3>
+                <ul>
+                    <li><a href="404.html">Telegram</a></li>
+                    <li><a href="404.html">X (бывший Twitter)</a></li> 
+                    <li><a href="404.html">Instagram</a></li> 
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Поддержка</h3>
+                <ul>
+                    <li><a href="404.html">Вход</a></li> 
+                    <li><a href="404.html">Свяжитесь с нами</a></li> 
+                    <li><a href="404.html">Помощь</a></li> 
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Кнопка для текста
+        document.getElementById('changeTextBtn').addEventListener('click', function() {
+            document.getElementById('changeableText').textContent = 'Здесь могла быть ваша реклама';
+        });
+
+        // Bar Chart — Популярность жанров
+        const barCtx = document.getElementById('barChart').getContext('2d');
+        new Chart(barCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Рок', 'Поп', 'Хип-хоп', 'Электронная', 'Джаз'],
+                datasets: [{
+                    label: 'Прослушивания (тыс.)',
+                    data: [120, 190, 300, 150, 80],
+                    backgroundColor: [
+                        '#ff4500', '#ff6347', '#ffa07a', '#fa8072', '#cd5c5c'
+                    ],
+                    borderColor: '#ff4500', /* Matching the site's border color */
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                animation: {
+                    duration: 1500,  // Smooth animation
+                    easing: 'easeOutBounce', // Fun bouncing animation effect
+                },
+                plugins: {
+                    tooltip: {
+                        enabled: true
+                    }
+                },
+                elements: {
+                    rectangle: {
+                        backgroundColor: 'transparent' // Remove the background color of the bars
+                    }
+                }
+            }
+        });
+
+        // Bubble Chart — Активность пользователей
+        const bubbleCtx = document.getElementById('bubbleChart').getContext('2d');
+        new Chart(bubbleCtx, {
+            type: 'bubble',
+            data: {
+                datasets: [{
+                    label: 'Активность пользователей',
+                    data: [
+                        { x: 10, y: 20, r: 25 }, // Increased bubble size
+                        { x: 20, y: 10, r: 30 },
+                        { x: 30, y: 25, r: 20 },
+                        { x: 40, y: 18, r: 22 },
+                        { x: 50, y: 30, r: 35 }
+                    ],
+                    backgroundColor: 'rgba(255, 69, 0, 0.6)',
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                animation: {
+                    duration: 1500,  // Smooth animation for the bubbles
+                    easing: 'easeOutExpo' // Smooth and elegant transition
+                },
+                plugins: {
+                    tooltip: {
+                        enabled: true
+                    }
+                },
+                scales: {
+                    x: {
+                        min: 0,   // Set minimum value for x-axis
+                        max: 60,  // Set maximum value for x-axis
+                        title: {
+                            display: true,
+                            text: 'Время на платформе (часы)'
+                        }
+                    },
+                    y: {
+                        min: 0,   // Set minimum value for y-axis
+                        max: 40,  // Set maximum value for y-axis
+                        title: {
+                            display: true,
+                            text: 'Количество взаимодействий'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</

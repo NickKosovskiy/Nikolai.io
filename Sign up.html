@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зарегистрироваться - MusicFlow</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 99%;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .logo:hover {
+            color: #ff4500;
+            transition: color 0.3s ease;
+        }
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        nav a:hover {
+            color: #ff4500;
+            transition: color 0.3s ease;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: 90px auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .form-container h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        .form-container label {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 10px;
+            color: white;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #333;
+            border: 1px solid #444;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 15px;
+            background: #ff4500;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #e03e00;
+        }
+        #password-strength {
+            margin-top: 10px;
+            font-size: 16px;
+            color: white;
+        }
+        #password-error {
+            font-size: 14px;
+            color: red;
+        }
+        footer {
+            background: black; 
+            color: white;
+            padding: 40px 20px; 
+            margin-top: 50px; 
+        }
+        .footer-container {
+            display: flex; 
+            justify-content: space-around;  
+            flex-wrap: wrap; 
+            max-width: 1200px; 
+            margin: auto; 
+        }
+        .footer-column {
+            min-width: 200px; 
+        }
+        .footer-column h3 {
+             font-size: 18px; 
+            margin-bottom: 15px; 
+        }
+        .footer-column ul { 
+            list-style: none;
+            padding: 0; 
+        }
+        .footer-column ul li {
+             margin-bottom: 10px; 
+        }
+        .footer-column ul li a {
+            color: white; 
+            text-decoration: none; 
+            transition: color 0.3s ease; 
+        }
+        .footer-column ul li a:hover {
+             color: #ff4500; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="website.html" class="logo">MusicFlow</a>
+        <nav>
+            <a href="news.html">Новости</a>
+            <a href="novic.html">Начинающим</a>
+            <a href="events.html">События</a>
+            <a href="community.html">Сообщество</a>
+            <a href="myz.html">Музыкантам</a>
+        </nav>
+    </header>
+    <div class="form-container">
+        <h2 id="form-title">Создать аккаунт</h2>
+        
+        <form id="registration-form" action="submit_registration.html" method="POST" onsubmit="return validateForm()">
+            <label for="username">Имя пользователя</label>
+            <input type="text" id="username" name="username" required placeholder="Введите имя пользователя">
+            
+            <label for="email">Электронная почта</label>
+            <input type="email" id="email" name="email" required placeholder="Введите вашу почту">
+            
+            <label for="password">Пароль</label>
+            <input type="password" id="password" name="password" required placeholder="Введите пароль" onkeyup="checkPasswordStrength()">
+            <div id="password-strength"></div>
+            
+            <label for="confirm-password">Подтверждение пароля</label>
+            <input type="password" id="confirm-password" name="confirm-password" required placeholder="Подтвердите пароль" onkeyup="checkPasswordMatch()">
+            <div id="password-error"></div>
+            
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+
+        <form id="login-form" action="submit_login.html" method="POST" style="display: none;">
+            <label for="login-email">Электронная почта</label>
+            <input type="email" id="login-email" name="email" required placeholder="Введите вашу почту">
+            
+            <label for="login-password">Пароль</label>
+            <input type="password" id="login-password" name="password" required placeholder="Введите пароль">
+            
+            <button type="submit">Войти</button>
+        </form>
+
+        <p id="toggle-link" style="cursor: pointer; color: #ff4500;">Уже есть аккаунт? Войти</p>
+    </div>
+
+    <footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>Узнайте о MusicFlow</h3>
+            <ul>
+                <li><a href="404.html">О MusicFlow</a></li>
+                <li><a href="404.html">Лидерство</a></li> 
+                <li><a href="404.html">Карьера</a></li> 
+                <li><a href="404.html">Правила и условия</a></li> 
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Сообщество MusicFlow</h3>
+            <ul>
+                <li><a href="404.html">Telegram</a></li>
+                <li><a href="404.html">X (бывший Twitter)</a></li> 
+                <li><a href="404.html">Instagram</a></li> 
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Поддержка</h3>
+            <ul>
+                <li><a href="404.html">Вход</a></li> 
+                <li><a href="404.html">Свяжитесь с нами</a></li> 
+                <li><a href="404.html">Помощь</a></li> 
+            </ul>
+        </div>
+    </div>
+    </footer>
+    <script>
+        // Ссылка для переключения между формами регистрации и входа
+        const toggleLink = document.getElementById('toggle-link');
+        const registrationForm = document.getElementById('registration-form');
+        const loginForm = document.getElementById('login-form');
+        const formTitle = document.getElementById('form-title');
+
+        toggleLink.addEventListener('click', function() {
+            if (registrationForm.style.display === 'none') {
+                registrationForm.style.display = 'block';
+                loginForm.style.display = 'none';
+                formTitle.textContent = 'Создать аккаунт';
+                toggleLink.textContent = 'Уже есть аккаунт? Войти';
+            } else {
+                registrationForm.style.display = 'none';
+                loginForm.style.display = 'block';
+                formTitle.textContent = 'Войти';
+                toggleLink.textContent = 'Нет аккаунта? Зарегистрироваться';
+            }
+        });
+        // Проверка силы пароля
+        function checkPasswordStrength() {
+            const password = document.getElementById('password').value;
+            const strengthElement = document.getElementById('password-strength');
+            let strength = 0;
+
+            if (password.length >= 8) strength++; // Длина пароля
+            if (/[A-Z]/.test(password)) strength++; // Заглавные буквы
+            if (/[a-z]/.test(password)) strength++; // Строчные буквы
+            if (/[0-9]/.test(password)) strength++; // Цифры
+            if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) strength++; // Специальные символы
+
+            switch (strength) {
+                case 0:
+                case 1:
+                    strengthElement.textContent = "Пароль слишком слабый";
+                    strengthElement.style.color = "red";
+                    break;
+                case 2:
+                    strengthElement.textContent = "Пароль слабый";
+                    strengthElement.style.color = "orange";
+                    break;
+                case 3:
+                    strengthElement.textContent = "Пароль средний";
+                    strengthElement.style.color = "yellow";
+                    break;
+                case 4:
+                    strengthElement.textContent = "Пароль хороший";
+                    strengthElement.style.color = "green";
+                    break;
+                case 5:
+                    strengthElement.textContent = "Пароль очень хороший";
+                    strengthElement.style.color = "green";
+                    break;
+            }
+        }
+        // Проверка совпадения паролей
+        function checkPasswordMatch() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const errorElement = document.getElementById('password-error');
+
+            if (password !== confirmPassword) {
+                errorElement.textContent = "Пароли не совпадают";
+                errorElement.style.color = "red";
+            } else {
+                errorElement.textContent = "";
+            }
+        }
+        // Валидация всей формы
+        function validateForm() {
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (!username || !email || !password || !confirmPassword) {
+                alert("Все поля обязательны для заполнения.");
+                return false;
+            }
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!email.match(emailPattern)) {
+                alert("Пожалуйста, введите корректный email.");
+                return false;
+            }
+            if (password !== confirmPassword) {
+                alert("Пароли не совпадают.");
+                return false;
+            }
+            if (password.length < 6) {
+                alert("Пароль должен содержать минимум 6 символов.");
+                return false;
+            }
+            alert("Форма успешно отправлена!");
+            return true;
+        }
+    </script>
+</body>
+</html>

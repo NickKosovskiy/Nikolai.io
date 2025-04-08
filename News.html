@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru"> 
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>MusicFlow-Новости</title>
+    <style>
+        body {
+            margin: 0; /* Убирает отступы по крайм */
+            font-family: Arial, sans-serif; /* Задаёт шрифт */
+            background: rgba(0, 0, 0, 0.9); /* Тёмный полупрозрачный фон */
+            color: white; /* Весь текст белого цвета */
+        }
+        header {
+            display: flex; /* Выстаивает элементы в строку */
+            justify-content: space-between; /* Распологает элементы по крайм */
+            align-items: center; /* Выравнивает по центру по вертикали */
+            background-color: black; /* Фон шапки */
+            padding: 15px 20px; /* Внутренние отступы */
+            position: fixed; /* Закрепляет шапку сверху при прокрутке */
+            top: 0; /* Шапка будет находиться на самом верху страницы */
+            left: 0; /* Левый край элемента будет находиться у самого левого края окна браузера */
+            width: 99%; /* Какое пространство занимает шапка вверху */
+            z-index: 1000; /* Гарантирует что шапка будет выше других элементов */
+        }
+        .logo {
+            font-size: 24px; /* Увеличивает размер шрифта */
+            font-weight: bold; /* Делает шрифт жирным */
+            color: #ffffff; /* Цвет логотипа */
+            text-decoration: none; /* Убирает подчёркивание */
+        }
+        .logo:hover {
+            color: #ff4500; /* Изменяет цвет логотипа при наведении */
+            transition: color 0.3s ease; /* Плавный переход цвета */
+        }
+        nav {
+            display: flex; /* Меню выстраивается в ряд */
+            gap: 15px; /* Расстояние между пунктами меню */
+        }
+        nav a {
+            color: #ffffff; /* Цвет ссылок */
+            text-decoration: none; /* Убиравет подчёркивание ссылок */
+            margin: 0 15px; /* Отступы слева и справа */
+            font-size: 18px; /* Размер шрифта */
+        }
+        nav a:hover {
+            color: #ff4500; /* Изменяет цвет текста при наведении */
+            transition: color 0.3s ease; /* Добавляет плавный переход */
+        }
+        span {
+            color: #ff4500;  /* Цвет выделенного текста */
+        }
+        main {
+            display: flex;  /* Распологает элементы в строке */
+            gap: 20px;  /* Промежуток между элементами */
+            padding: 100px 20px;  /* Отступы */
+            max-width: 1200px;  /* Ограничение ширины контейнера */
+            margin: 0 auto;  /* Центрирует контейнер по горизонтали */
+        }
+        .news-main {
+            flex: 2;  /* Занимает 2/3 от всей ширины */
+        }
+        .news-sidebar {
+            flex: 1;  /* Занимает 1/3 от main */
+            background: rgba(255, 255, 255, 0.1);  /* Цвет фона */
+            padding: 15px;  /* Внутренний отступ */
+        }
+        .news-item {
+            background: rgba(255, 255, 255, 0.1);  /* Цвет фона */
+            padding: 15px;  /* Внутренний отступ */
+            margin-bottom: 20px;  /* Отступ снизу между карточками */
+            border-radius: 8px;  /* Скруглённые углы */
+        }
+        .news-item img {
+            width: 100%;  /* Фото растягивается на всю ширину карточки */
+            border-radius: 8px;  /* Закруглённые углы */
+        }
+        footer {
+            background: black; 
+            color: white; 
+            padding: 40px 20px; 
+            margin-top: 50px; 
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-around;  
+            flex-wrap: wrap; 
+            max-width: 1200px; 
+            margin: auto; 
+        }
+        .footer-column {
+            min-width: 200px; 
+        }
+        .footer-column h3 {
+             font-size: 18px; 
+            margin-bottom: 15px; 
+        }
+        .footer-column ul { 
+            list-style: none; 
+            padding: 0; 
+        }
+        .footer-column ul li {
+             margin-bottom: 10px; 
+        }
+        .footer-column ul li a {
+            color: white; 
+            text-decoration: none; 
+            transition: color 0.3s ease; 
+        }
+        .footer-column ul li a:hover {
+             color: #ff4500; 
+        }
+        h6 {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="website.html" class="logo">MusicFlow</a>
+        <nav>
+            <a href="news.html">Новости</a>
+            <a href="novic.html">Начинающим</a>
+            <a href="events.html">События</a>
+            <a href="community.html">Сообщество</a>
+            <a href="myz.html">Музыкантам</a>
+        </nav>
+    </header>
+    <main>
+        <section class="news-main">
+            <h2><span>Свежие новости музыки</span></h2>
+            <div class="news-item">
+                <a href="images/KISS.webp" target="_blank"><img src="images/KISS.webp" alt="Гитарист KISS"></a>
+                <h3>Экс-гитарист KISS Брюс Кулик планирует написать автобиографию</h3>
+                <p>Бывший гитарист американской рок-группы KISS Брюс Кулик заявил, что в следующем году он планирует начать работу над автобиографией. По словам музыканта, в книге он подробно расскажет о своей жизни и работе с KISS.</p>
+                <h6>31 декабря 2024г</h6>
+            </div>
+            <div class="news-item">
+                <a href="images/Brothers.webp" target="_blank"><img src="images/Brothers.webp" alt="Doobie Brothers"></a>
+                <h3>The Doobie Brothers выпустят новый альбом Walk This Road в 2025 году</h3>
+                <p>Американская рок-группа The Doobie Brothers подтвердила, что выпустит новый студийник под названием Walk This Road в следующем году. В создании лонгплея также принял участие Майкл Макдональд, который в последний раз работал над оригинальными песнями бэнда в 1980 году.</p>
+                <h6>30 декабря 2024г</h6>
+            </div>
+        </section>
+        <aside class="news-sidebar">
+            <h2><span>Другие новости</span></h2>
+            <div class="news-item">
+                <h3>Леди Гага хочет написать бродвейский мюзикл</h3>
+                <p>Леди Гага уже давно перестала ассоциироваться только как певица. Звезда успешно снимается в кино и сериалах, а теперь хочет попробовать написать бродвейский мюзикл.</p>
+            </div>
+            <div class="news-item">
+                <h3>Adidas распродала все пары кроссовок Yeezy из коллаборации с Канье Уэстом</h3>
+                <p>Adidas объявила, что полностью распродала все пары кроссовок Yeezy, выпущенные в сотрудничестве с Канье Уэстом. В 2013 году рэпер заключил с брендом прибыльное соглашение, стоимость которого превышала миллиард долларов, но в октябре 2022 года Adidas разорвала партнерство после антисемитских высказываний Уэста.</p>
+            </div>
+        </aside>
+    </main>
+    <footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>Узнайте о MusicFlow</h3>
+            <ul>
+                <li><a href="404.html">О MusicFlow</a></li>
+                <li><a href="404.html">Лидерство</a></li>
+                <li><a href="404.html">Карьера</a></li>
+                <li><a href="404.html">Правила и условия</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Сообщество MusicFlow</h3>
+            <ul>
+                <li><a href="404.html">Telegram</a></li>
+                <li><a href="404.html">X (бывший Twitter)</a></li>
+                <li><a href="404.html">Instagram</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Поддержка</h3>
+            <ul>
+                <li><a href="404.html">Вход</a></li>
+                <li><a href="404.html">Свяжитесь с нами</a></li>
+                <li><a href="404.html">Помощь</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+

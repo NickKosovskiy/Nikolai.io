@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>MusicFlow-Начинающим</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 99%;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .logo:hover {
+            color: #ff4500;
+            transition: color 0.3s ease;
+        }
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        nav a:hover {
+            color: #ff4500;
+            transition: color 0.3s ease;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        /* Левая часть: Репетиторы как ВКонтакте */
+        .community-container {
+            flex: 2;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .community-container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            border-bottom: 2px solid #ff4500;
+            padding-bottom: 10px;
+        }
+        .community-container .community {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: background 0.3s ease;
+            cursor: pointer;
+        }
+        .community-container .community:hover {
+            background: rgba(255, 255, 255, 0.3); /* При наведении меняется фон */
+        }
+        .community img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+        .community .info {
+            flex: 1;
+        }
+        .community .info h3 {
+            margin: 0;
+            font-size: 20px;
+            color: #ff4500;
+        }
+        .community .info p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        .community .info .status {
+            color: #7e7e7e;
+            font-size: 14px;
+        }
+        .community-container .community a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .become-tutor-btn {
+            padding: 10px 20px;
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            display: block;
+            width: 30%;
+            margin-top: 30px;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+        .become-tutor-btn:hover {
+            background-color: #e03e00;
+        }
+        .video-container {
+            flex: 1;
+            margin-left: 20px;
+        }
+        .video-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .video-frame {
+            border: 4px solid #ff4500;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .video-frame iframe {
+            width: 100%;
+            height: 200px;
+        }
+
+        footer {
+            background: black;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .footer-column {
+            min-width: 200px;
+        }
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        .footer-column ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-column ul li a:hover {
+            color: #ff4500;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="website.html" class="logo">MusicFlow</a>
+        <nav>
+            <a href="news.html">Новости</a>
+            <a href="novic.html">Начинающим</a>
+            <a href="events.html">События</a>
+            <a href="community.html">Сообщество</a>
+            <a href="myz.html">Музыкантам</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="community-container">
+            <h2>Репетиторы и обучающие сообщества</h2>
+            <div class="community">
+                <a href="404.html">
+                    <div class="info">
+                        <h3>Репетитор по музыкальной теории</h3>
+                        <p>Профессиональный педагог, работающий в музыкальных школах.</p>
+                        <p class="status">В сети: 1 час назад</p>
+                    </div>
+                </a>
+            </div>
+            <div class="community">
+                <a href="404.html">
+                    <div class="info">
+                        <h3>Репетитор по игре на гитаре</h3>
+                        <p>Обучение с нуля и помощь в совершенствовании игры.</p>
+                        <p class="status">В сети: 5 минут назад</p>
+                    </div>
+                </a>
+            </div>
+            <div class="community">
+                <a href="404.html">
+                    <div class="info">
+                        <h3>Репетитор по вокалу</h3>
+                        <p>Подготовка к прослушиваниям, индивидуальные уроки.</p>
+                        <p class="status">В сети: 3 часа назад</p>
+                    </div>
+                </a>
+            </div>
+            <div class="community">
+                <a href="404.html">
+                    <div class="info">
+                        <h3>Репетитор по музыкальной композиции</h3>
+                        <p>Создание музыки, теория композиции и аранжировки.</p>
+                        <p class="status">В сети: 1 дня назад</p>
+                    </div>
+                </a>
+            </div>
+            <div class="community">
+                <a href="404.html">
+                    <div class="info">
+                        <h3>Репетитор по игре на фортепиано</h3>
+                        <p>Профессиональное обучение с профессиональным педагогом.</p>
+                        <p class="status">В сети: 3 дня назад</p>
+                    </div>
+                </a>
+            </div>
+            <a href="404.html" class="become-tutor-btn">Стать репетитором</a>
+        </div>
+
+        <div class="video-container">
+            <h2>Бесплатные уроки</h2>
+            <div class="video-frame">
+                <iframe src="https://www.youtube.com/embed/EdjTAyXt0iA?si=Uw8rXPcfb40Ztnzy" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-frame">
+                <iframe src="https://www.youtube.com/embed/UZzSbO37hys?si=5-eN2DTWAoZEj-UH" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/oTRB30YhOr8?si=t-Wi_aeNgGLOJjvj" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>Узнайте о MusicFlow</h3>
+            <ul>
+                <li><a href="404.html">О MusicFlow</a></li>
+                <li><a href="404.html">Лидерство</a></li> 
+                <li><a href="404.html">Карьера</a></li> 
+                <li><a href="404.html">Правила и условия</a></li> 
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Сообщество MusicFlow</h3>
+            <ul>
+                <li><a href="404.html">Telegram</a></li>
+                <li><a href="404.html">X (бывший Twitter)</a></li> 
+                <li><a href="404.html">Instagram</a></li> 
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Поддержка</h3>
+            <ul>
+                <li><a href="404.html">Вход</a></li> 
+                <li><a href="404.html">Свяжитесь с нами</a></li> 
+                <li><a href="404.html">Помощь</a></li> 
+            </ul>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

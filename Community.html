@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ru"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>MusicFlow-Сообщества</title>
+    <style>
+        body {
+            margin: 0; 
+            font-family: Arial, sans-serif; 
+            background: rgba(0, 0, 0, 0.9); 
+            color: white; 
+        }
+        header {
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            background-color: black; 
+            padding: 15px 20px; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 99%; 
+            z-index: 1000; 
+        }
+        .logo {
+            font-size: 24px; 
+            font-weight: bold;
+            color: #ffffff; 
+            text-decoration: none; 
+        }
+        .logo:hover {
+            color: #ff4500; 
+            transition: color 0.3s ease; 
+        }
+        nav {
+            display: flex; 
+            gap: 15px; 
+        }
+        nav a {
+            color: #ffffff; 
+            text-decoration: none;
+            margin: 0 15px; 
+            font-size: 18px; 
+        }
+        nav a:hover {
+            color: #ff4500; 
+            transition: color 0.3s ease; 
+        }
+        .community-section {
+            text-align: center;  
+            padding: 70px 20px 50px;  
+        }
+        .community-section h2 {
+            font-size: 36px;  
+            margin-bottom: 20px; 
+        }
+        .community-card {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s;
+        }
+        .community-card:hover {
+            transform: scale(1.05); 
+        }
+        .community-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        .community-card .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .community-card h3 {
+            font-size: 24px;
+            margin: 0;
+            color: white;
+        }
+        .community-card .details {
+            color: #ccc;
+            font-size: 14px;
+        }
+        .community-card p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #ddd;
+        }
+        .community-card a {
+            color: #ff4500;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .community-card a:hover {
+            color: #e03e00;
+            transition: color 0.3s ease;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white; 
+            background: #ff4500;  
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+        .btn:hover {
+            background: #ffa500; 
+        }
+        footer {
+            background: black; 
+            color: white; 
+            padding: 40px 20px; 
+            margin-top: 50px; 
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-around;  
+            flex-wrap: wrap; 
+            max-width: 1200px; 
+            margin: auto; 
+        }
+        .footer-column {
+            min-width: 200px; 
+        }
+        .footer-column h3 {
+             font-size: 18px; 
+            margin-bottom: 15px; 
+        }
+        .footer-column ul { 
+            list-style: none; 
+            padding: 0; 
+        }
+        .footer-column ul li {
+             margin-bottom: 10px; 
+        }
+        .footer-column ul li a {
+            color: white; 
+            text-decoration: none; 
+            transition: color 0.3s ease; 
+        }
+        .footer-column ul li a:hover {
+             color: #ff4500; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="website.html" class="logo">MusicFlow</a>
+        <nav>
+            <a href="news.html">Новости</a>
+            <a href="novic.html">Начинающим</a>
+            <a href="events.html">События</a>
+            <a href="community.html">Сообщество</a>
+            <a href="myz.html">Музыкантам</a>
+        </nav>
+    </header>
+    <section class="community-section">
+    <h2>Выберите сообщество:</h2>
+    
+    <div class="community-card">
+        <img src="images/Rock.jpg" alt="Рок">
+        <div class="info">
+            <h3>Любители рока</h3>
+            <div class="details">
+                <span>1520 участников</span> •
+                <span>12.05.2018</span>
+            </div>
+            <p>Обсуждение рок-музыки и концертов</p>
+            <a href="404.html">Перейти</a>
+        </div>
+    </div>
+
+    <div class="community-card">
+        <img src="images/Pop.webp" alt="Поп">
+        <div class="info">
+            <h3>Любители поп-музыки</h3>
+            <div class="details">
+                <span>2430 участников</span> •
+                <span>08.09.2019</span>
+            </div>
+            <p>Новости и тренды в поп-музыке</p>
+            <a href="404.html">Перейти</a>
+        </div>
+    </div>
+
+    <div class="community-card">
+        <img src="images/Jaz.jpg" alt="Джаз">
+        <div class="info">
+            <h3>Фанаты джаза</h3>
+            <div class="details">
+                <span>980 участников</span> •
+                <span>21.03.2017</span>
+            </div>
+            <p>Джазовые исполнители и их творчество</p>
+            <a href="404.html">Перейти</a>
+        </div>
+    </div>
+
+    <div class="community-card">
+        <img src="images/EDM.jpg" alt="EDM">
+        <div class="info">
+            <h3>Электронная музыка</h3>
+            <div class="details">
+                <span>1875 участников</span> •
+                <span>15.04.2020</span>
+            </div>
+            <p>Обсуждение EDM и фестивалей</p>
+            <a href="404.html">Перейти</a>
+        </div>
+    </div>
+
+    <div class="community-card">
+        <img src="images/Meloman.jpg" alt="Меломаны">
+        <div class="info">
+            <h3>Меломаны</h3>
+            <div class="details">
+                <span>2355 участников</span> •
+                <span>08.07.2019</span>
+            </div>
+            <p>Любители разной музыки</p>
+            <a href="404.html">Перейти</a>
+        </div>
+    </div>
+    <div class="button-container">
+        <a href="404.html" class="btn">Создать сообщество</a>
+    </div>
+</section>
+        <footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>Узнайте о MusicFlow</h3>
+            <ul>
+                <li><a href="404.html">О MusicFlow</a></li>
+                <li><a href="404.html">Лидерство</a></li>
+                <li><a href="404.html">Карьера</a></li>
+                <li><a href="404.html">Правила и условия</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Сообщество MusicFlow</h3>
+            <ul>
+                <li><a href="404.html">Telegram</a></li>
+                <li><a href="404.html404.html">X (бывший Twitter)</a></li>
+                <li><a href="404.html">Instagram</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Поддержка</h3>
+            <ul>
+                <li><a href="404.html">Вход</a></li>
+                <li><a href="404.html">Свяжитесь с нами</a></li>
+                <li><a href="404.html">Помощь</a></li>
+            </ul>
+        </div>
+    </div>
+    </footer>
+</body>
+</html>
+
